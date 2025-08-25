@@ -28,7 +28,7 @@ It allows users to perform full **CRUD operations** (Create, Read, Update, Delet
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/expiration-control-system.git
+   git clone https://github.com/ErickdeSouzaDias/expiration-control-system.git
    cd expiration-control-system
    ```
 
