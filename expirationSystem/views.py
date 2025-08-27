@@ -1,7 +1,11 @@
-from django.shortcuts import render
 from .models import Expirationsystem
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
+class HomeListView(ListView):
+    model = Expirationsystem
 
-def home(request):
-    products = Expirationsystem.objects.all()
-    return render(request, "expiration/home.html", {"products": products})
+class HomeCreateView(CreateView):
+    model = Expirationsystem
+    fields = ["reference_code", "expiration_date", "product", "quantity"]
+    success_url = reverse_lazy("homeCreate")

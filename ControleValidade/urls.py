@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from expirationSystem.views import home
+from expirationSystem.views import HomeListView, HomeCreateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home),
+    path("", HomeListView.as_view(), name="homeList "),
+    path("cadastrar", HomeCreateView.as_view(), name="homeCreate"),
 ]
