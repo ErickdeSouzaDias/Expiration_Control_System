@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 
 class HomeListView(ListView):
     model = Expirationsystem
+    paginate_by = 10
 
 class HomeCreateView(CreateView):
     model = Expirationsystem

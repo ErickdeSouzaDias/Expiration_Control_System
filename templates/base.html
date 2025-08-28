@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-        background-color: #B3B3B3;
+        background-color: #ffffff;
     }
     header {
       background-color: #0d6efd; /* Azul Bootstrap */
@@ -19,6 +19,10 @@
       background-color: #242325; /* Amarelo Bootstrap */
       color: white;
     }
+    a{
+        text-decoration: none;
+        color: white;
+    }
   </style>
 </head>
 <body>
@@ -26,7 +30,9 @@
   <!-- Cabeçalho -->
   <header class="py-3">
     <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="h3">Sistema integrado de validades D'Marco</h1>
+        <h1 class="h3">
+            <a href="{% url 'homeList' %}">Sistema integrado de validades D'Marco</a>
+        </h1>
         <h6>Quem pesquisa, compra aqui!</h6>
     </div>
   </header>
