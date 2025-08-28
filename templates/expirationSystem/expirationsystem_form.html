@@ -2,15 +2,24 @@
 {% load crispy_forms_tags %}
 
 {% block page_title %}
-    Cadastro
+    {% if not expirationsystem.pk %}
+        Cadastro
+    {% else %}
+        Edição
+    {% endif %}
 {% endblock page_title %}
 
 {% block content %}
-    <h1>Cadastrar validade</h1>
+    {% if not expirationsystem.pk %}
+        <h1>Cadastrar validade</h1>
+    {% else %}
+        <h1>Editar validade</h1>
+    {% endif %}
+    
 <form method="post">
   {% csrf_token %}
   {{ form|crispy }}
-  <button type="submit">Cadastrar</button>
-  <a href="{% url 'homeList ' %}">Voltar</a>
+  <button type="submit" class="btn btn-success">Cadastrar</button>
+  <a href="{% url 'homeList' %}" class="btn btn-secondary">Voltar</a>
 </form>
 {% endblock content %}

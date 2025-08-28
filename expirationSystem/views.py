@@ -1,5 +1,5 @@
 from .models import Expirationsystem
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 class HomeListView(ListView):
@@ -9,3 +9,12 @@ class HomeCreateView(CreateView):
     model = Expirationsystem
     fields = ["reference_code", "expiration_date", "product", "quantity"]
     success_url = reverse_lazy("homeCreate")
+
+class HomeUpdateView(UpdateView):
+    model = Expirationsystem
+    fields = ["reference_code", "expiration_date", "product", "quantity"]
+    success_url = reverse_lazy("homeList")
+
+class HomeDeleteView(DeleteView):
+    model = Expirationsystem
+    success_url = reverse_lazy("homeList")
