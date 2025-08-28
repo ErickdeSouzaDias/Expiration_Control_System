@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Listagem
+{% endblock page_title %}
+
+{% block content %}
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h3>Produtos</h3>
+        <a href="{% url 'homeCreate' %}">Cadastrar</a>
+        {% if expirationsystem_list %}
+          <table>
+              <tr>
+                  <td>Referência</td>
+                  <td>Nome</td>
+                  <td>Validade</td>
+                  <td>Ações</td>
+              </tr>
+              {% for produto in expirationsystem_list %}
+                  <tr>
+                    <td>{{ produto.reference_code }}</td>
+                    <td>{{ produto.product }}</td>
+                    <td>{{ produto.expiration_date|default:"--" }}</td>
+                    <td>
+                        <a href="#" class="btn btn-warning">Editar</a>
+                    </td>
+                  </tr>
+              {% endfor %}
+          </table>
+        {% else %}
+            <p class="container">Não há dados disponíveis!</p>
+        {% endif %} 
+      </div>
+    </div>
+
+{% endblock content %}
