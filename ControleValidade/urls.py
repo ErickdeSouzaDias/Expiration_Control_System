@@ -25,4 +25,5 @@ urlpatterns = [
     path("cadastrar", HomeCreateView.as_view(), name="homeCreate"),
     path("editar/<int:pk>", HomeUpdateView.as_view(), name="homeUpdate"),
     path("excluir/<int:pk>", HomeDeleteView.as_view(), name="homeDelete"),
+
 ]
