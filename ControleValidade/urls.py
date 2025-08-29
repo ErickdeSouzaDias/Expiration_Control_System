@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from expirationSystem.views import HomeListView, HomeCreateView, HomeUpdateView, HomeDeleteView
+from expirationSystem.views import HomeListView, HomeCreateView, HomeUpdateView, HomeDeleteView, ExportarPDFView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,5 +25,6 @@ urlpatterns = [
     path("cadastrar", HomeCreateView.as_view(), name="homeCreate"),
     path("editar/<int:pk>", HomeUpdateView.as_view(), name="homeUpdate"),
     path("excluir/<int:pk>", HomeDeleteView.as_view(), name="homeDelete"),
+    path("exportar-pdf/", ExportarPDFView.as_view(), name="exportar_pdf"),
 
 ]

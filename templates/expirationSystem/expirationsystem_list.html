@@ -18,10 +18,9 @@
           {{ form.data_final }}
         </div>
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Filtrar</button>
-          <a href="{% url 'homeList' %}" class="btn btn-secondary">Limpar</a>
-            
-
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a href="{% url 'homeList' %}" class="btn btn-secondary">Limpar</a>
+            <a href="{% url 'exportar_pdf' %}" class="btn btn-danger">Exportar PDF</a>
         </div>
       </form>
     </div>
