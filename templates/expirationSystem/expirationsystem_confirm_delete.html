@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Confirmar Exclusão
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Exclusão de validade</h1>
+    <p>Tem certeza que deseja excluir a validade do item, <strong>{{ expirationsystem.reference_code }}</strong> ?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmo exclusão</button>
+        <a href="{% url 'homeList' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock content %}
