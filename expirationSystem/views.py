@@ -47,6 +47,21 @@ class HomeDeleteView(DeleteView):
 
 class ExportarPDFView(View):
     def get(self, request, *args, **kwargs):
+        # Pega parâmetros do GET
+        data_inicial = request.GET.get("data_inicial")
+        data_final = request.GET.get("data_final")
+
+        # Converte para datetime
+        if data_inicial and data_final:
+            try:
+                data_inicial = datetime.strptime(data_inicial, "%Y-%m-%d").date()
+                data_final = datetime.strptime(data_final, "%Y-%m-%d").date()
+                produtos = Expirationsystem.objects.filter(expiration_date__range=(data_inicial, data_final))
+            except ValueError:
+                produtos = Expirationsystem.objects.all()
+        else:
+            produtos = Expirationsystem.objects.all()
+
         # Criar a resposta HTTP para PDF
         response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = f'attachment; filename="relatorio{datetime.now()}.pdf"'
@@ -68,7 +83,7 @@ class ExportarPDFView(View):
         # Dados
         p.setFont("Helvetica", 10)
         y = height - 120
-        produtos = Expirationsystem.objects.all()
+        #produtos = Expirationsystem.objects.all()
 
         for prod in produtos:
             p.drawString(50, y, str(prod.reference_code))

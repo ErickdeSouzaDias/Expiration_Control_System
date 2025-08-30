@@ -20,7 +20,13 @@
         <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Filtrar</button>
             <a href="{% url 'homeList' %}" class="btn btn-secondary">Limpar</a>
-            <a href="{% url 'exportar_pdf' %}" class="btn btn-danger">Exportar PDF</a>
+            {% if request.GET.data_inicial and request.GET.data_final %}
+    <a href="{% url 'exportar_pdf' %}?data_inicial={{ request.GET.data_inicial }}&data_final={{ request.GET.data_final }}" 
+       class="btn btn-danger">
+       Exportar PDF
+    </a>
+{% endif %}
+
         </div>
       </form>
     </div>
